@@ -4,9 +4,11 @@ import { Sidebar } from "@/components/sidebar";
 
 interface Props {
 	lang?: "en" | "ko";
+	title?: string;
+	description?: string;
 }
 
-const { lang = "ko" } = Astro.props;
+const { lang = "ko", title = "Kobbokkom's blog", description = "A simple blog with nested navigation" } = Astro.props;
 ---
 
 <html lang={lang}>
@@ -14,8 +16,8 @@ const { lang = "ko" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Kobbokkom's blog</title>
-    <meta name="description" content="A simple blog with nested navigation" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
   </head>
   <body class="font-sans">
     <div class="min-h-screen bg-background">
