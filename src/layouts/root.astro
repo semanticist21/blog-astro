@@ -1,0 +1,35 @@
+---
+import { Header } from "@/components/header";
+import { Sidebar } from "@/components/sidebar";
+
+interface Props {
+	lang?: "en" | "ko";
+}
+
+const { lang = "ko" } = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Kobbokkom</title>
+    <meta name="description" content="A simple blog with nested navigation" />
+  </head>
+  <body class="font-sans">
+    <div class="min-h-screen bg-background">
+      <Header client:load />
+      <div class="container mx-auto px-4 py-8">
+        <div class="flex gap-8">
+          <main class="flex-1 max-w-2xl mx-auto">
+            <slot />
+          </main>
+          <aside class="w-64 shrink-0">
+            <Sidebar client:load />
+          </aside>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
