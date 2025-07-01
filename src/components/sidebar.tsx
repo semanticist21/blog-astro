@@ -1,8 +1,8 @@
 "use client";
 
+import { blogStructure } from "@/lib/blog-data";
 import { ChevronDown, ChevronRight, FileText } from "lucide-react";
 import { useState } from "react";
-import { blogStructure } from "@/lib/blog-data";
 
 interface NavItemProps {
 	item: any;
@@ -28,6 +28,7 @@ function NavItem({ item, level }: NavItemProps) {
 	return (
 		<div>
 			<button
+				type="button"
 				onClick={() => setIsOpen(!isOpen)}
 				className="flex items-center gap-2 py-1 px-2 text-sm hover:bg-muted rounded-md transition-colors w-full text-left"
 				style={{ paddingLeft: `${level * 12 + 8}px` }}
